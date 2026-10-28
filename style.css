@@ -1,0 +1,127 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f3f7f6;
+  color: #172b28;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+header {
+  padding: 30px 20px 36px;
+  background: #075e54;
+  color: white;
+  border-radius: 0 0 26px 26px;
+}
+
+header h1 {
+  margin: 0 0 8px;
+  font-size: 27px;
+}
+
+header p {
+  margin: 0;
+  color: #e0f2ec;
+}
+
+main {
+  max-width: 560px;
+  margin: -18px auto 0;
+  padding: 0 16px 24px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #dce7e3;
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 5px 18px rgba(15, 60, 48, 0.05);
+}
+
+.card h2 {
+  margin: 0 0 18px;
+  font-size: 20px;
+}
+
+label {
+  display: block;
+  margin: 15px 0 7px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid #cbd9d4;
+  border-radius: 10px;
+  background: white;
+  color: #172b28;
+  font: inherit;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 18px;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 11px;
+  background: #075e54;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+button.secondary {
+  background: #edf3f0;
+  color: #075e54;
+}
+
+.result {
+  margin-top: 16px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #e4f5ee;
+  overflow-wrap: anywhere;
+}
+
+.result.warning {
+  background: #fff1dc;
+  color: #a64b00;
+}
+
+.result.danger {
+  background: #feeceb;
+  color: #b42318;
+}
+
+#history {
+  padding-left: 20px;
+}
+
+#history li {
+  padding: 8px 0;
+  border-bottom: 1px solid #edf1ef;
+}
+
+.notice {
+  padding: 12px;
+  color: #647570;
+  font-size: 12px;
+}
+
+footer {
+  padding: 12px 16px 24px;
+  text-align: center;
+  color: #647570;
+  font-size: 13px;
+}
