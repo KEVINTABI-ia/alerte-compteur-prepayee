@@ -1,4 +1,3 @@
-
 const creditInput = document.getElementById("credit");
 const seuilInput = document.getElementById("seuil");
 const consoInput = document.getElementById("conso");
@@ -83,6 +82,7 @@ function sauvegarderReglages() {
 
 document.getElementById("save").addEventListener("click", () => {
   const credit = Number(creditInput.value);
+  const seuil = Number(seuilInput.value);
 
   if (creditInput.value.trim() === "" || !Number.isFinite(credit) || credit < 0) {
     result.className = "result danger";
@@ -100,6 +100,12 @@ document.getElementById("save").addEventListener("click", () => {
   sauvegarderReglages();
   afficherHistorique();
   actualiserResultat();
+
+  if (seuilInput.value !== "" && credit <= seuil) {
+    alert("⚠️ ALERTE COMPTEUR\n\nVotre crédit restant est de " +
+      afficherMontant(credit) + ".\nVotre seuil d'alerte est de " +
+      afficherMontant(seuil) + ".\nPensez à recharger votre compteur.");
+  }
 });
 
 [creditInput, seuilInput, consoInput].forEach((champ) => {
