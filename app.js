@@ -136,6 +136,7 @@ const notificationButton = document.getElementById("enableNotifications");
 
 if (notificationButton) {
   notificationButton.addEventListener("click", () => {
+    alert("Le bouton fonctionne !");
     window.OneSignalDeferred = window.OneSignalDeferred || [];
 
     window.OneSignalDeferred.push(async function(OneSignal) {
