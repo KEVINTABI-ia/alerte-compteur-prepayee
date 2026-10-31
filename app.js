@@ -132,6 +132,14 @@ afficherHistorique();
 actualiserResultat();
 const notificationButton = document.getElementById("enableNotifications");
 
+notificationButton.addEventListener("click", () => {
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+
+  window.OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.Slidedown.promptPush();
+  });
+});
+
 notificationButton.addEventListener("click", async () => {
   if (!("Notification" in window)) {
     alert("Les notifications ne sont pas prises en charge.");
