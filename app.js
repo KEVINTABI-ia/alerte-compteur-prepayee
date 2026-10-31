@@ -130,3 +130,26 @@ try {
 
 afficherHistorique();
 actualiserResultat();
+const notificationButton = document.getElementById("enableNotifications");
+
+notificationButton.addEventListener("click", async () => {
+  if (!("Notification" in window)) {
+    alert("Les notifications ne sont pas prises en charge.");
+    return;
+  }
+
+  const permission = await Notification.requestPermission();
+
+  if (permission === "granted") {
+    const registration = await navigator.serviceWorker.ready;
+
+    await registration.showNotification("⚡ Alerte compteur", {
+      body: "Les notifications sont autorisées sur votre iPhone.",
+      icon: "./icon.svg"
+    });
+
+    alert("Notifications autorisées avec succès !");
+  } else {
+    alert("L'autorisation des notifications n'a pas été accordée.");
+  }
+});
