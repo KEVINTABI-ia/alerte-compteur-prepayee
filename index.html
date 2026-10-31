@@ -37,7 +37,12 @@
 </main>
 <footer>Votre consommation, mieux suivie.</footer>
 <script src="./app.js?v=2"></script>
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script
+src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
+defer
+onload="document.getElementById('enableNotifications').textContent='SDK OneSignal chargé';"
+onerror="document.getElementById('enableNotifications').textContent='Échec du chargement OneSignal';">
+</script>
 
 <script>
 window.OneSignalDeferred = window.OneSignalDeferred || [];
