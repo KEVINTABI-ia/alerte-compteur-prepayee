@@ -139,7 +139,6 @@ notificationButton.addEventListener("click", () => {
     await OneSignal.Slidedown.promptPush();
   });
 });
-
     alert("Les notifications ne sont pas prises en charge.");
     return;
   }
