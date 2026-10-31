@@ -37,14 +37,24 @@
 </main>
 <footer>Votre consommation, mieux suivie.</footer>
 <script src="./app.js"></script>
+<script src="./app.js"></script>
+
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+
 <script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./service-worker.js")
-      .then(() => console.log("Service worker activé"))
-      .catch((error) => console.error("Erreur :", error));
+window.OneSignalDeferred = window.OneSignalDeferred || [];
+
+OneSignalDeferred.push(async function(OneSignal) {
+  await OneSignal.init({
+    appId: "b424e80d-b617-42c6-8055-a874a05ec278",
+    safari_web_id: "web.onesignal.auto.064b44a8-1dd7-4e10-9d87-452ef5b9c9dd",
+    notifyButton: {
+      enable: true
+    }
   });
-}
+});
 </script>
+
 </body>
+</html>
 </html>
