@@ -1,3 +1,4 @@
+
 const creditInput = document.getElementById("credit");
 const seuilInput = document.getElementById("seuil");
 const consoInput = document.getElementById("conso");
@@ -130,38 +131,21 @@ try {
 
 afficherHistorique();
 actualiserResultat();
+
 const notificationButton = document.getElementById("enableNotifications");
 
-notificationButton.addEventListener("click", () => {
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
+if (notificationButton) {
+  notificationButton.addEventListener("click", () => {
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
 
-  window.OneSignalDeferred.push(async function(OneSignal) {
-    try {
-      await OneSignal.User.PushSubscription.optIn();
-      alert("Demande d'abonnement envoyée à OneSignal.");
-    } catch (error) {
-      console.error("Erreur OneSignal :", error);
-      alert("Erreur lors de l'inscription aux notifications.");
-    }
+    window.OneSignalDeferred.push(async function(OneSignal) {
+      try {
+        await OneSignal.User.PushSubscription.optIn();
+        alert("Demande d'abonnement envoyée à OneSignal.");
+      } catch (error) {
+        console.error("Erreur OneSignal :", error);
+        alert("Erreur lors de l'inscription aux notifications.");
+      }
+    });
   });
-});
-
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-
-  window.OneSignalDeferred.push(async function(OneSignal) {
-    try {
-      await OneSignal.User.PushSubscription.optIn();
-      alert("Demande d'abonnement envoyée à OneSignal.");
-    } catch (error) {
-      console.error("Erreur OneSignal :", error);
-      alert("Erreur lors de l'inscription aux notifications.");
-    }
-  });
-});
-
-notificationButton.addEventListener("click", () => {
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-
-  window.OneSignalDeferred.push(async function(OneSignal) {
-  });
-});
+}
