@@ -132,21 +132,3 @@ try {
 afficherHistorique();
 actualiserResultat();
 
-const notificationButton = document.getElementById("enableNotifications");
-
-if (notificationButton) {
-  notificationButton.addEventListener("click", () => {
-    alert("Le bouton fonctionne !");
-    window.OneSignalDeferred = window.OneSignalDeferred || [];
-
-    window.OneSignalDeferred.push(async function(OneSignal) {
-      try {
-        await OneSignal.User.PushSubscription.optIn();
-        alert("Demande d'abonnement envoyée à OneSignal.");
-      } catch (error) {
-        console.error("Erreur OneSignal :", error);
-        alert("Erreur lors de l'inscription aux notifications.");
-      }
-    });
-  });
-}
