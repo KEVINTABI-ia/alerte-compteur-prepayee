@@ -56,16 +56,29 @@ OneSignalDeferred.push(async function(OneSignal) {
       safari_web_id: "web.onesignal.auto.064b44a8-1dd7-4e10-9d87-452ef5b9c9dd"
     });
 
-    bouton.textContent = "OneSignal prêt : activer les notifications";
-    bouton.dataset.onesignalReady = "true";
+    bouton.textContent = "Activer les notifications";
+
+    bouton.addEventListener("click", async function() {
+      bouton.disabled = true;
+      bouton.textContent = "Activation en cours…";
+
+      try {
+        await OneSignal.User.PushSubscription.optIn();
+        bouton.textContent = "Demande d'abonnement effectuée";
+        alert("Demande d'abonnement effectuée. Vérifie ensuite Audience > Subscriptions dans OneSignal.");
+      } catch (error) {
+        bouton.disabled = false;
+        bouton.textContent = "Réessayer l'activation";
+        alert("Erreur OneSignal : " + (error && error.message ? error.message : String(error)));
+      }
+    });
 
   } catch (error) {
-    bouton.textContent = "Erreur OneSignal : " + error.message;
+    bouton.textContent = "Erreur de connexion OneSignal";
     alert("Erreur OneSignal : " + error.message);
   }
 });
 </script>
 
 </body>
-</html>
 </html>
