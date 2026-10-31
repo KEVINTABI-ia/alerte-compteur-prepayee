@@ -150,6 +150,5 @@ notificationButton.addEventListener("click", () => {
   window.OneSignalDeferred = window.OneSignalDeferred || [];
 
   window.OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.Slidedown.promptPush();
   });
 });
