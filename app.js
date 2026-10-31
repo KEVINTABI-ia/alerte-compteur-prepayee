@@ -140,7 +140,6 @@ notificationButton.addEventListener("click", () => {
   });
 });
 
-  if (!("Notification" in window)) {
     alert("Les notifications ne sont pas prises en charge.");
     return;
   }
